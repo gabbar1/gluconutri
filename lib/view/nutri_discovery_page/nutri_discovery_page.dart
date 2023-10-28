@@ -44,7 +44,10 @@ class _NutriDiscoveryPageState extends State<NutriDiscoveryPage> with TickerProv
             title: Text("My Foodie Discovery"),
             actions: [Padding(
               padding: const EdgeInsets.only(right: 18.0),
-              child: Icon(Icons.clear),
+              child: InkWell(
+                  onTap:(){
+                    Navigator.pop(context); 
+                  },child: Icon(Icons.clear)),
             )]
           ),
         ),
@@ -54,13 +57,14 @@ class _NutriDiscoveryPageState extends State<NutriDiscoveryPage> with TickerProv
           SizedBox(height: 20,),
           TabBar(
             controller: _controller,
-            indicatorWeight:5,
+            indicatorWeight:.1,
             indicatorSize: TabBarIndicatorSize.label,
             /*indicator: BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.pink,
             ),*/
-            indicatorColor: Colors.pink,
+
+            //indicatorColor: Colors.pink,
             unselectedLabelColor: Colors.black12,
             labelColor: Colors.black,
             tabs: [

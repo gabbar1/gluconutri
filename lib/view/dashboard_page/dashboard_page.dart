@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gluconutri/view/fun_gluco_page/fun_gluco.dart';
 import 'package:gluconutri/view/gluco_nutri_page/gluco_nutri_page.dart';
 import 'package:gluconutri/view/nutri_discovery_page/nutri_discovery_page.dart';
+import 'package:gluconutri/view/profile_page/profile_page.dart';
 
 
 class DashBoardPage extends StatefulWidget {
