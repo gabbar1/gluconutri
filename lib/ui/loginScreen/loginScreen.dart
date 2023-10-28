@@ -1,10 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
+import 'package:gluconutri/ui/loginScreen/controller/login_controller.dart';
 import 'package:gluconutri/ui/registerScreen/registerScreen.dart';
 import 'package:gluconutri/ui/welcomeScreen/welcomeScreen.dart';
-import 'package:gluconutri/view/dashboard_page/dashboard_navigator/dashboard_navigator.dart';
-import 'package:gluconutri/view/dashboard_page/dashboard_page.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../home/home.dart';
 
@@ -35,6 +36,8 @@ class _LoginScreenState extends State<LoginScreen> {
     return _emailController.text.isNotEmpty &&
         _passwordController.text.isNotEmpty;
   }
+
+  LoginController loginController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -137,9 +140,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           padding:
                               const EdgeInsets.fromLTRB(40.0, 10.0, 28.0, 20.0),
                           child: Text(
-                            'Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod.',
+                            "For existing users, please proceed with the login process to access the application's complete funcationality",
                             style:
-                                TextStyle(fontSize: 16.0, color: Colors.white),
+                                TextStyle(fontSize: 14.0, color: Colors.white),
                           ),
                         ),
                         SizedBox(height: 20.0),
@@ -242,13 +245,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ElevatedButton(
                                     onPressed: _isButtonEnabled
                                         ? () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      HomeNavigator()),
-                                                      //HomeScreen()),
-                                            );
+                                            loginController.loginWithEmail(_emailController.text, _passwordController.text);
                                           }
                                         : null,
                                     style: ElevatedButton.styleFrom(
@@ -265,7 +262,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     child: Text(
                                       'Continue',
                                       style: TextStyle(
-                                          color: Colors.grey,
+                                          color: _isButtonEnabled?Colors.white:Colors.grey,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
@@ -291,9 +288,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       ElevatedButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          loginController.signInWithGoogle();
+                                        },
                                         style: ElevatedButton.styleFrom(
-                                          //backgroundColor: Colors.white,
+                                          backgroundColor: Colors.white,
                                           shadowColor: Colors.white,
                                           padding: EdgeInsets.symmetric(
                                               horizontal: 80.0, vertical: 15.0),
@@ -339,7 +338,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ElevatedButton(
                                         onPressed: () {},
                                         style: ElevatedButton.styleFrom(
-                                          //backgroundColor: Colors.white,
+                                          backgroundColor: Colors.white,
                                           shadowColor: Colors.white,
                                           padding: EdgeInsets.symmetric(
                                               horizontal: 80.0, vertical: 15.0),
@@ -385,10 +384,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ],
       )
-          //LoginScreenContent(
-          //emailController: _emailController,
-          //passwordController: _passwordController,
-          //),
           ),
     );
   }

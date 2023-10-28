@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class FunGlucoPage extends StatefulWidget {
-  const FunGlucoPage({Key? key}) : super(key: key);
-
+   FunGlucoPage({Key? key,this.rout}) : super(key: key);
+  bool? rout =false;
   @override
   State<FunGlucoPage> createState() => _FunGlucoPageState();
 }
@@ -11,50 +11,10 @@ class _FunGlucoPageState extends State<FunGlucoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: widget.rout == true ?AppBar(
         elevation: 0,
-        backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
-        leading: Container(
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.white,
-          ),
-          padding: const EdgeInsets.all(8.0),
-          child: const CircleAvatar(
-            backgroundImage: AssetImage(
-                'assets/Images/profile.png'),
-            radius: 20.0,
-            backgroundColor:
-            Colors.transparent,
-          ),
-        ),
-        title: const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Good Day, Eleizabeth',
-                style: TextStyle(
-                    fontSize: 16.0,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold)),
-            Text(
-              'Today you are in control of your health',
-              style: TextStyle(fontSize: 12.0, color: Colors.black),
-            ),
-          ],
-        ),
-        actions: [
-          IconButton(
-            icon: Image.asset(
-              'assets/Images/notification.png',
-              width: 30,
-              height: 30,
-            ), //Icon(Icons.notifications),
-            onPressed: () {
-              // Implement notification icon action
-            },
-          ),
-        ],
-      ),
+
+      ):null,
       body: funGluco(),
     );
   }

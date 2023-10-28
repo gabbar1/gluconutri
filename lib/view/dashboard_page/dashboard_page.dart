@@ -15,50 +15,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
-          leading: Container(
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-            ),
-            padding: const EdgeInsets.all(8.0),
-            child: const CircleAvatar(
-              backgroundImage: AssetImage(
-                  'assets/Images/profile.png'),
-              radius: 20.0,
-              backgroundColor:
-              Colors.transparent,
-            ),
-          ),
-          title: const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Good Day, Eleizabeth',
-                  style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold)),
-              Text(
-                'Today you are in control of your health',
-                style: TextStyle(fontSize: 12.0, color: Colors.black),
-              ),
-            ],
-          ),
-          actions: [
-            IconButton(
-              icon: Image.asset(
-                'assets/Images/notification.png',
-                width: 30,
-                height: 30,
-              ), //Icon(Icons.notifications),
-              onPressed: () {
-                // Implement notification icon action
-              },
-            ),
-          ],
-        ),
+
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Column(children: [
@@ -78,7 +35,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         children: [
           InkWell(
             onTap: (){
-              //Navigator.push(context, MaterialPageRoute(builder: (context)=>FunGlucoPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>FunGlucoPage(rout: true,)));
             },
             child: Container(
               height: 150,

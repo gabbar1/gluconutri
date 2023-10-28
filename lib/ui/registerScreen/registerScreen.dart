@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
+import 'package:gluconutri/ui/loginScreen/controller/login_controller.dart';
 
 import '../loginScreen/loginScreen.dart';
 import '../welcomeScreen/welcomeScreen.dart';
@@ -11,16 +13,14 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         body: RegisterScreenContent(
-          emailController: _emailController,
-          passwordController: _passwordController,
+
         ),
       ),
     );
@@ -28,18 +28,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
 }
 
 class RegisterScreenContent extends StatefulWidget {
-  final TextEditingController emailController;
-  final TextEditingController passwordController;
 
-  RegisterScreenContent({
-    required this.emailController,
-    required this.passwordController,
-  });
 
-  bool isButtonEnabled() {
-    return emailController.text.isNotEmpty &&
-        passwordController.text.isNotEmpty;
-  }
+
+
+
+
 
   @override
   _RegisterScreenContentState createState() => _RegisterScreenContentState();
@@ -68,10 +62,13 @@ class _RegisterScreenContentState extends State<RegisterScreenContent> {
   }
 
   bool isButtonEnabled() {
-    return widget.emailController.text.isNotEmpty &&
-        widget.passwordController.text.isNotEmpty;
+    return _emailController.text.isNotEmpty &&
+        _passwordController.text.isNotEmpty;
   }
-
+  LoginController loginController = Get.find();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -220,7 +217,7 @@ class _RegisterScreenContentState extends State<RegisterScreenContent> {
                                               BorderRadius.circular(40.0),
                                         ),
                                         child: TextField(
-                                          controller: widget.emailController,
+                                          controller: _emailController,
                                           decoration: InputDecoration(
                                               border: InputBorder.none,
                                               hintText: 'example@test.com',
@@ -259,7 +256,7 @@ class _RegisterScreenContentState extends State<RegisterScreenContent> {
                                               BorderRadius.circular(40.0),
                                         ),
                                         child: TextField(
-                                          controller: widget.passwordController,
+                                          controller: _passwordController,
                                           obscureText: true,
                                           decoration: InputDecoration(
                                             border: InputBorder.none,
@@ -300,7 +297,7 @@ class _RegisterScreenContentState extends State<RegisterScreenContent> {
                                               BorderRadius.circular(40.0),
                                         ),
                                         child: TextField(
-                                          controller: widget.emailController,
+                                          controller: _nameController,
                                           decoration: InputDecoration(
                                               border: InputBorder.none,
                                               hintText: 'enter full name',
@@ -362,7 +359,10 @@ class _RegisterScreenContentState extends State<RegisterScreenContent> {
                                 ),
                                 SizedBox(height: 40.0),
                                 ElevatedButton(
-                                  onPressed: isButtonEnabled() ? () {} : null,
+                                  onPressed: isButtonEnabled() ? () {
+                                    loginController.registerWithEmail(_emailController.text, _passwordController.text, _nameController.text, "${selectedDate.toLocal()}"
+                                        .split(' ')[0]);
+                                  } : null,
                                   style: ElevatedButton.styleFrom(
                                     //backgroundColor: Color(0xFF1200B3),
                                     shadowColor: Color(0xFF1200B3),

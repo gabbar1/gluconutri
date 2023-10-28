@@ -87,8 +87,8 @@ class WelcomeScreenContent extends StatelessWidget {
                         _navigateToLoginScreen(context);
                       },
                       style: ElevatedButton.styleFrom(
-                        //backgroundColor: Color(0xFF1200B3),
-                        shadowColor: Color(0xFF1200B3),
+                        backgroundColor: Color(0xFF1200B3),
+
                         padding: EdgeInsets.symmetric(
                             horizontal: 60.0, vertical: 20.0),
                         shape: RoundedRectangleBorder(
@@ -110,8 +110,8 @@ class WelcomeScreenContent extends StatelessWidget {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        shadowColor: Colors.white,
-                        //backgroundColor: Colors.white,
+
+                        backgroundColor: Colors.white,
                         padding: EdgeInsets.symmetric(
                             horizontal: 50.0, vertical: 20.0),
                         shape: RoundedRectangleBorder(

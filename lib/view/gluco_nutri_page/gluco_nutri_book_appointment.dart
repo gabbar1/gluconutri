@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gluconutri/view/gluco_nutri_page/model/top_dietitian_model.dart';
 
 class BookAppointment extends StatefulWidget {
-  const BookAppointment({Key? key}) : super(key: key);
-
+   BookAppointment({this.topDietitianModel}) ;
+   TopDietitianModel? topDietitianModel;
   @override
   State<BookAppointment> createState() => _BookAppointmentState();
 }
@@ -75,13 +76,14 @@ class _BookAppointmentState extends State<BookAppointment> {
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
                 child: Row(
                   children: [
-                    Image(image: AssetImage("assets/Images/doctor1.png")),
-                    const SizedBox(width: 5,),
+                    Image(image: NetworkImage(widget.topDietitianModel!.image!)),
+                    const SizedBox(width: 10,),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Dr. Tanya',style: TextStyle(fontWeight: FontWeight.bold),),
-                        const Text('Senior Dietitian',style: TextStyle(fontWeight: FontWeight.w300),),
+                        SizedBox(height: 10,),
+                         Text(widget.topDietitianModel!.name!,style: TextStyle(fontWeight: FontWeight.bold),),
+                         Text(widget.topDietitianModel!.designation!,style: TextStyle(fontWeight: FontWeight.w300),),
                         Row(children: [Text("7.2 Years",style: TextStyle(fontWeight: FontWeight.bold),),Text("(Experience)",style: TextStyle(fontWeight: FontWeight.w300),)],),
                         Row(children: [Image(image: AssetImage("assets/Images/star.png"),height: 20,width: 20,),Text("4.0",style: TextStyle(fontWeight: FontWeight.bold),),Text("(192 Review)",style: TextStyle(fontWeight: FontWeight.w300),)],)
 
