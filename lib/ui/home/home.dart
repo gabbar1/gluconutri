@@ -50,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          elevation: 0,
           backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
           leading: Container(
             decoration: const BoxDecoration(
@@ -59,12 +60,10 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.all(8.0),
             child: const CircleAvatar(
               backgroundImage: AssetImage(
-                  'assets/Images/profile.png'), // Replace with your image asset
+                  'assets/Images/profile.png'),
               radius: 20.0,
               backgroundColor:
-                  Colors.transparent, // Set background color to transparent
-
-              // Adjust the radius as needed
+                  Colors.transparent,
             ),
           ),
           title: Column(

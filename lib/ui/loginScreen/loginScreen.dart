@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:gluconutri/ui/registerScreen/registerScreen.dart';
 import 'package:gluconutri/ui/welcomeScreen/welcomeScreen.dart';
+import 'package:gluconutri/view/dashboard_page/dashboard_navigator/dashboard_navigator.dart';
+import 'package:gluconutri/view/dashboard_page/dashboard_page.dart';
 
 import '../home/home.dart';
 
@@ -244,7 +246,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      HomeScreen()),
+                                                      HomeNavigator()),
+                                                      //HomeScreen()),
                                             );
                                           }
                                         : null,

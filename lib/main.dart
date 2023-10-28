@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gluconutri/ui/splash_screen.dart';
 import 'package:gluconutri/ui/welcomeScreen/welcomeScreen.dart';
 
 void main() {
@@ -9,7 +8,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,6 +15,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.purple,
         ),
+        debugShowCheckedModeBanner: false,
         home: WelcomeScreen());
   }
 }
