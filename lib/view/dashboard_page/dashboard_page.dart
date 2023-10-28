@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gluconutri/view/fun_gluco_page/fun_gluco.dart';
 import 'package:gluconutri/view/gluco_nutri_page/gluco_nutri_page.dart';
 import 'package:gluconutri/view/nutri_discovery_page/nutri_discovery_page.dart';
+import 'package:gluconutri/view/profile_page/profile_page.dart';
 
 
 class DashBoardPage extends StatefulWidget {
@@ -18,18 +19,23 @@ class _DashBoardPageState extends State<DashBoardPage> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
-          leading: Container(
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-            ),
-            padding: const EdgeInsets.all(8.0),
-            child: const CircleAvatar(
-              backgroundImage: AssetImage(
-                  'assets/Images/profile.png'),
-              radius: 20.0,
-              backgroundColor:
-              Colors.transparent,
+          leading: InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage()));
+            },
+            child: Container(
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+              ),
+              padding: const EdgeInsets.all(8.0),
+              child: const CircleAvatar(
+                backgroundImage: AssetImage(
+                    'assets/Images/profile.png'),
+                radius: 20.0,
+                backgroundColor:
+                Colors.transparent,
+              ),
             ),
           ),
           title: const Column(
