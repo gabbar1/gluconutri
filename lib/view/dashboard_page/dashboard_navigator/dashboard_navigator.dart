@@ -3,6 +3,7 @@ import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import 'package:get/get.dart';
 import 'package:gluconutri/ui/home/controller/home_controller.dart';
 import 'package:gluconutri/view/dashboard_page/dashboard_page.dart';
+import 'package:gluconutri/view/extra_menu/extra_menu.dart';
 import 'package:gluconutri/view/fun_gluco_page/fun_gluco.dart';
 
 
@@ -25,7 +26,7 @@ Widget pages(int _currentIndex){
     case 3 :
       return  FunGlucoPage();
     case 4 :
-      return  FunGlucoPage();
+      return  DashBoardPage();
     default :
       return const DashBoardPage();
   }

@@ -116,35 +116,6 @@ class _RegisterScreenContentState extends State<RegisterScreenContent> {
                               ),
                             ),
                           ),
-                          Spacer(), // Add spacing between buttons
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Color(0xFF431A9E), // Slightly darker shade
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(40.0),
-                                bottomLeft: Radius.circular(40.0),
-                              ),
-                            ),
-                            child: TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => WelcomeScreen()),
-                                );
-                              },
-                              child: Padding(
-                                padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                                child: Text(
-                                  'Skip',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
                         ],
                       ),
                       SizedBox(height: 20.0),

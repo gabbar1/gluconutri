@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class NutriDiscoveryFavorites extends StatefulWidget {
-  const NutriDiscoveryFavorites({Key? key}) : super(key: key);
+class MyMenuFavorites extends StatefulWidget {
+  const MyMenuFavorites({Key? key}) : super(key: key);
 
   @override
-  State<NutriDiscoveryFavorites> createState() => _NutriDiscoveryFavoritesState();
+  State<MyMenuFavorites> createState() => _MyMenuFavoritesState();
 }
 
-class _NutriDiscoveryFavoritesState extends State<NutriDiscoveryFavorites> {
+class _MyMenuFavoritesState extends State<MyMenuFavorites> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: favoriteFoodList()
+        body: favoriteFoodList()
     );
   }
   favoriteFoodList(){

@@ -65,32 +65,45 @@ class _BookAppointmentState extends State<BookAppointment> {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(35),
-          child: Card(
-            elevation: 1,
-            child: Container(
-                height: 120,
-                width: MediaQuery.of(context).size.width,
-                //height: 80,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-                child: Row(
-                  children: [
-                    Image(image: NetworkImage(widget.topDietitianModel!.image!)),
-                    const SizedBox(width: 10,),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: 10,),
-                         Text(widget.topDietitianModel!.name!,style: TextStyle(fontWeight: FontWeight.bold),),
-                         Text(widget.topDietitianModel!.designation!,style: TextStyle(fontWeight: FontWeight.w300),),
-                        Row(children: [Text("7.2 Years",style: TextStyle(fontWeight: FontWeight.bold),),Text("(Experience)",style: TextStyle(fontWeight: FontWeight.w300),)],),
-                        Row(children: [Image(image: AssetImage("assets/Images/star.png"),height: 20,width: 20,),Text("4.0",style: TextStyle(fontWeight: FontWeight.bold),),Text("(192 Review)",style: TextStyle(fontWeight: FontWeight.w300),)],)
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Offset(1, 1,), // changes the position of the shadow
+              ),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(35),
+            child: Card(
+              elevation: 1,
+              child: Container(
+                  height: 120,
+                  width: MediaQuery.of(context).size.width,
+                  //height: 80,
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    children: [
+                      Image(image: NetworkImage(widget.topDietitianModel!.image!)),
+                      const SizedBox(width: 10,),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 10,),
+                           Text(widget.topDietitianModel!.name!,style: TextStyle(fontWeight: FontWeight.bold),),
+                           Text(widget.topDietitianModel!.designation!,style: TextStyle(fontWeight: FontWeight.w300),),
+                          Row(children: [Text("7.2 Years",style: TextStyle(fontWeight: FontWeight.bold),),Text("(Experience)",style: TextStyle(fontWeight: FontWeight.w300),)],),
+                          Row(children: [Image(image: AssetImage("assets/Images/star.png"),height: 20,width: 20,),Text("4.0",style: TextStyle(fontWeight: FontWeight.bold),),Text("(192 Review)",style: TextStyle(fontWeight: FontWeight.w300),)],)
 
-                      ],
-                    )
-                  ],
-                )
+                        ],
+                      )
+                    ],
+                  )
+              ),
             ),
           ),
         ),

@@ -4,8 +4,7 @@ import 'package:get/get.dart';
 import 'package:gluconutri/firebase_options.dart';
 import 'package:gluconutri/ui/loginScreen/auth_authenticator.dart';
 import 'package:gluconutri/ui/loginScreen/controller/login_controller.dart';
-import 'package:gluconutri/ui/splash_screen.dart';
-import 'package:gluconutri/ui/welcomeScreen/welcomeScreen.dart';
+
 
 void main() async{
 

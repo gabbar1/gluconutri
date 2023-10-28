@@ -37,6 +37,7 @@ class WelcomeScreenContent extends StatelessWidget {
             children: [
               Expanded(
                 child: Container(
+
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage('assets/psd_exports/011.png'),
@@ -48,6 +49,12 @@ class WelcomeScreenContent extends StatelessWidget {
             ],
           ),
         ),
+        /*Expanded(child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          color: Color(0xFF6FBA0E),
+          child: Image(image: AssetImage('assets/Images/welcomenew.png',),)
+        )),*/
         Container(
           decoration: BoxDecoration(
             color: Color(0xFF651ECC),
@@ -72,7 +79,7 @@ class WelcomeScreenContent extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(40.0, 20.0, 28.0, 20.0),
                 child: Text(
-                  'Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut ullamco laboris nisi ut aliquip ex ea commodo consequat!',
+                  'Discover the solution to simplify your life, take control of your blood sugar, and empower your health!',
                   style: TextStyle(fontSize: 16.0, color: Colors.white),
                 ),
               ),
