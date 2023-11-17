@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gluconutri/view/nutri_discovery_page/search_all.dart';
+import 'package:gluconutri/view/nutri_discovery_page/prime_plate.dart';
 
 class NutriDiscoveryItemDetails extends StatefulWidget {
   final Data data;

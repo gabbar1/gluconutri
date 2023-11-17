@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart ';
-import 'package:gluconutri/view/nutri_discovery_page/search_breakfast.dart';
-import 'package:gluconutri/view/nutri_discovery_page/search_dinner.dart';
-import 'package:gluconutri/view/nutri_discovery_page/search_lunch.dart';
-import 'search_all.dart';
-import 'search_other.dart';
+import 'package:gluconutri/view/nutri_discovery_page/all_food_list.dart';
+import 'package:gluconutri/view/nutri_discovery_page/salads.dart';
+import 'package:gluconutri/view/nutri_discovery_page/breakfast.dart';
+import 'prime_plate.dart';
+import 'desserts.dart';
 
 class NutriDiscoverySeachPage extends StatefulWidget {
   final int initialTabIndex;
@@ -233,13 +233,13 @@ class _NutriDiscoverySeachPageState extends State<NutriDiscoverySeachPage> with 
           child: TabBarView(
             controller: _controller,
             children: [
-              NutriSearchBreakfastPage(),
-              NutriSearchAllPage(),
-              NutriSearchLunchPage(),
-              NutriSearchDinnerPage(),
-              NutriSearchOtherPage(),
-              NutriSearchOtherPage(),
-              NutriSearchOtherPage(),
+              NutriDiscoverySearchAll(),
+              NutriDiscoveryPrimePlate(),
+              NutriDiscoveryBreakfast(),
+              NutriDiscoverySalads(),
+              NutriDiscoveryDesserts(),
+              NutriDiscoveryDesserts(),
+              NutriDiscoveryDesserts(),
             ],
           ),
         ),

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:gluconutri/view/nutri_discovery_page/nutri_discovery_item_details/nutri_discovery_item_details.dart';
 
 
-class NutriSearchAllPage extends StatefulWidget {
-  const NutriSearchAllPage({Key? key}) : super(key: key);
+class NutriDiscoveryPrimePlate extends StatefulWidget {
+  const NutriDiscoveryPrimePlate({Key? key}) : super(key: key);
 
   @override
-  State<NutriSearchAllPage> createState() => _NutriSearchAllPageState();
+  State<NutriDiscoveryPrimePlate> createState() => _NutriDiscoveryPrimePlateState();
 }
 
-class _NutriSearchAllPageState extends State<NutriSearchAllPage> {
+class _NutriDiscoveryPrimePlateState extends State<NutriDiscoveryPrimePlate> {
 
   List<Data> item = <Data>[
     Data(

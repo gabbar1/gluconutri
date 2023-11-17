@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gluconutri/view/nutri_discovery_page/nutri_discovery_item_details/nutri_discovery_item_details.dart';
-import 'package:gluconutri/view/nutri_discovery_page/search_all.dart';
+import 'package:gluconutri/view/nutri_discovery_page/prime_plate.dart';
 
-class NutriSearchLunchPage extends StatefulWidget {
-  const NutriSearchLunchPage({Key? key}) : super(key: key);
+class NutriDiscoveryBreakfast extends StatefulWidget {
+  const NutriDiscoveryBreakfast({Key? key}) : super(key: key);
 
   @override
-  State<NutriSearchLunchPage> createState() => _NutriSearchLunchPageState();
+  State<NutriDiscoveryBreakfast> createState() => _NutriDiscoveryBreakfastState();
 }
 
-class _NutriSearchLunchPageState extends State<NutriSearchLunchPage> {
+class _NutriDiscoveryBreakfastState extends State<NutriDiscoveryBreakfast> {
 
   List<Data> item = <Data>[
     Data(
@@ -50,6 +50,8 @@ class _NutriSearchLunchPageState extends State<NutriSearchLunchPage> {
   ];
 //
   List<Data> get getItem => item;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,11 +65,11 @@ class _NutriSearchLunchPageState extends State<NutriSearchLunchPage> {
                   height: MediaQuery.of(context).size.height,
                   child: Expanded(
                     child: ListView.builder(
-                        itemCount: 5,
+                        itemCount: item.length,
                         itemBuilder: (context,index){
                           return InkWell(
                             onTap: (){
-                              //Navigator.push(context, MaterialPageRoute(builder: (context)=>NutriDiscoveryItemDetails()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>NutriDiscoveryItemDetails(data: item[index],)));
                             },
                             child: Container(
                               height: 165,
@@ -75,7 +77,11 @@ class _NutriSearchLunchPageState extends State<NutriSearchLunchPage> {
                               ),
                               child: Row(
                                 children: [
-                                  Image(image: AssetImage("assets/Images/nutri_discovery_food.png"),height: 150,width: 140,),
+                                  //Image(image: AssetImage("assets/Images/nutri_discovery_food.png"),height: 150,width: 140,),
+                                  ClipRRect(
+                                      borderRadius: BorderRadius.circular(15),
+                                      child: Image.network(getItem[index].image.toString(),height: 130,width: 140,fit: BoxFit.fill)
+                                  ),
                                   SizedBox(width: 10),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 8.0,bottom: 10),
@@ -84,15 +90,21 @@ class _NutriSearchLunchPageState extends State<NutriSearchLunchPage> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         SizedBox(height: 3,),
-                                        Text("Italian Style california Buretto combo",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12),),
-                                        Text("Popular domburi dish consisteing\nof vegs and onions served over a bowl of\nnuts.The meat and onion are cooked in a\nmixture of soy sauce, mirin,\nsugar and sake.",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w200),),
+                                        Text(
+                                          getItem[index].name ?? "name",
+                                          //"Italian Style california Buretto combo",
+                                          style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12,color: Colors.black),),
+                                        Text(getItem[index].description.toString(),style: TextStyle(fontSize: 12,fontWeight: FontWeight.w200),),
                                         Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                             Row(
                                               children: [
-                                                Image(image: AssetImage("assets/Images/profile.png"),height: 20,),
-                                                Text("Penelope Cruz",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w200),)
+                                                ClipOval(child: Image.network(getItem[index].authorImage.toString(),height: 22,width:22,fit: BoxFit.cover,)),
+                                                SizedBox(width: 5,),
+                                                Text(
+                                                  getItem[index].author.toString(),
+                                                  style: TextStyle(fontSize: 14,fontWeight: FontWeight.w200),)
                                               ],
                                             ),
                                             SizedBox(width: 70,),

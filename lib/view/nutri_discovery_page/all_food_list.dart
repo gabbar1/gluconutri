@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:gluconutri/view/nutri_discovery_page/nutri_discovery_item_details/nutri_discovery_item_details.dart';
 
-
-class NutriSearchDinnerPage extends StatefulWidget {
-  const NutriSearchDinnerPage({Key? key}) : super(key: key);
+class NutriDiscoverySearchAll extends StatefulWidget {
+  const NutriDiscoverySearchAll({Key? key}) : super(key: key);
 
   @override
-  State<NutriSearchDinnerPage> createState() => _NutriSearchDinnerPageState();
+  State<NutriDiscoverySearchAll> createState() => _NutriDiscoverySearchAllState();
 }
 
-class _NutriSearchDinnerPageState extends State<NutriSearchDinnerPage> {
+class _NutriDiscoverySearchAllState extends State<NutriDiscoverySearchAll> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +21,7 @@ class _NutriSearchDinnerPageState extends State<NutriSearchDinnerPage> {
                 height: MediaQuery.of(context).size.height,
                 child: Expanded(
                   child: ListView.builder(
-                      itemCount: 2,
+                      itemCount: 3,
                       itemBuilder: (context,index){
                         return InkWell(
                           onTap: (){
