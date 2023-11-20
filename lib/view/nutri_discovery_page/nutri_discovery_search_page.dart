@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart ';
+
+import 'package:flutter/material.dart';
 import 'package:gluconutri/view/nutri_discovery_page/search_breakfast.dart';
 import 'package:gluconutri/view/nutri_discovery_page/search_dinner.dart';
 import 'package:gluconutri/view/nutri_discovery_page/search_lunch.dart';

@@ -5,6 +5,7 @@ import 'package:gluconutri/ui/home/controller/home_controller.dart';
 import 'package:gluconutri/view/dashboard_page/dashboard_page.dart';
 import 'package:gluconutri/view/extra_menu/extra_menu.dart';
 import 'package:gluconutri/view/fun_gluco_page/fun_gluco.dart';
+import 'package:gluconutri/view/profile_page/profile_page.dart';
 
 
 class HomeNavigator extends StatefulWidget {
@@ -65,17 +66,27 @@ class _HomeNavigatorState extends State<HomeNavigator> {
               color: Colors.white,
             ),
             padding: const EdgeInsets.all(8.0),
-            child: homeController.getUserDetails.profile!=null? CircleAvatar(
-              backgroundImage: NetworkImage(homeController.getUserDetails.profile.toString()),
-              radius: 20.0,
-              backgroundColor:
-              Colors.transparent,
+            child: homeController.getUserDetails.profile!=null? InkWell(
+                onTap: (){
+                  Get.to(ProfilePage());
+                },
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(homeController.getUserDetails.profile.toString()),
+                radius: 20.0,
+                backgroundColor:
+                Colors.transparent,
+              ),
             ):ClipRRect(
               borderRadius: BorderRadius.circular(2000.0),
-          child: ProfilePicture(
-          name: homeController.getUserDetails.name.toString(),
-          radius: 31,
-          fontsize: 21,
+          child: InkWell(
+            onTap: (){
+              Get.to(ProfilePage());
+            },
+            child: ProfilePicture(
+            name: homeController.getUserDetails.name.toString(),
+            radius: 31,
+            fontsize: 21,
+            ),
           ),
           ),
           );
