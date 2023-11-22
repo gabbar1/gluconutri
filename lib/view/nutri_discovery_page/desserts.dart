@@ -12,7 +12,7 @@ class NutriDiscoveryDesserts extends StatefulWidget {
 class _NutriDiscoveryDessertsState extends State<NutriDiscoveryDesserts> {
   List<Data> item = <Data>[
     Data(
-        image: "https://drive.google.com/uc?id=1pxlF4lcGz6q2PgTzoG7rGM4FBP-qTlZl",
+        image: "https://drive.google.com/uc?id=1MSv97bQyvnSOUL01TPX0tx_t3F2oiXlL",
         name: "Choco lava cake",
         description: "Choco lava cake is a small \nindividual chocolate cake with a rich\nand moist exterior and a gooey,\nmolten chocolate center.",
         author: "Penelope Cruz",
@@ -36,14 +36,28 @@ class _NutriDiscoveryDessertsState extends State<NutriDiscoveryDesserts> {
         indgredians: "2 large eggs\n1/4 cup all-purpose flour\n2 large egg yolks\n1/2 cup granulated sugar\n1/2 cup (1 stick) unsalted butter"
     ),
     Data(
-        image: "https://drive.google.com/uc?id=1tjD72CdSikv3Vpi6nJKmPH8Ywstgizsp",
-        name: "Fruit salad",
-        description: "Popular domburi dish consisteing\nof vegs and onions served over a bowl of\nnuts.The meat and onion are cooked in a\nmixture of soy sauce, mirin,\nsugar and sake.",
+        image: "https://drive.google.com/uc?id=1pxlF4lcGz6q2PgTzoG7rGM4FBP-qTlZl",
+        name: "Chocolate Chip Cookies",
+        description: "Cookies are small, sweet,\nbaked treats that come in\na variety of shapes, sizes,\nand flavors.",
         author: "Penelope Cruz",
         authorImage: "https://drive.google.com/uc?id=1ZQbxVrsl84ZVQuP4CNU4c4TpzHIkuHPY",
-        calory: 2.5,
-        fullDescription: "Fruit salad breakfast is a refreshing and nutritious morning dish made by combining a variety of fresh fruits. It typically includes a colorful mix of fruits such as berries, melons, citrus, and tropical fruits, chopped and served together. This light and healthy option provides a burst of vitamins, antioxidants, and natural sweetness to start the day on a delicious and energizing note.\n\nThis breakfast option is not only visually appealing but also packed with essential nutrients like vitamins, minerals, and fiber.",
-        indgredians: "Strawberries\nBlueberries\nPineapple chunks\nWatermelon cubes\nGrapes (red or green)\nKiwi slices\nOrange segments"
+        calory: 80,
+        nutritions: [
+          Nutritions(
+              name: "Carbohydrates",
+              amount: 48
+          ),
+          Nutritions(
+            name: "Fat",
+            amount: 6,
+          ),
+          Nutritions(
+            name: "Protein",
+            amount: 8,
+          ),
+        ],
+        fullDescription: "Cookies are delightful, bite-sized baked treats that come in a wide variety of flavors, textures, and shapes. They are a beloved and versatile dessert enjoyed by people of all ages around the world.\n\nGluten-Free Cookies: Made with alternative flours for those with gluten sensitivities.\n\nVegan Cookies: Prepared without animal products, often using substitutes like flax eggs or vegan butter.\n\nHealthy Cookies: Feature ingredients like whole grains, nuts, and natural sweeteners for a healthier option.",
+        indgredians: "Flour\nSugar\nStrawberries\nBlueberries\nEggs\nFlavorings: Vanilla extract, almond extract\nMix-ins: Chocolate chips, nuts, dried fruits"
 
     ),
   ];

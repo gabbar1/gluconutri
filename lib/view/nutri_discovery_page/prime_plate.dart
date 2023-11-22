@@ -13,38 +13,52 @@ class _NutriDiscoveryPrimePlateState extends State<NutriDiscoveryPrimePlate> {
 
   List<Data> item = <Data>[
     Data(
-      image: "https://drive.google.com/uc?id=1vOPYOcb54WzDKteyNbuyiSnTNDB78djF",
-      name: "Italian Style california Buretto combo",
-      description: "Popular domburi dish consisteing\nof vegs and onions served over a bowl of\nnuts.The meat and onion are cooked in a\nmixture of soy sauce, mirin,\nsugar and sake.",
-      author: "Penelope Cruz",
-      authorImage: "https://drive.google.com/uc?id=1ZQbxVrsl84ZVQuP4CNU4c4TpzHIkuHPY",
-      calory: 2.5,
-      nutritions: [
-        Nutritions(
-            name: "Carbohydrates",
-            amount: 50
-      ),
-      Nutritions(
-        name: "Fat",
-        amount: 10,
-      ),
-      Nutritions(
-        name: "Protein",
-        amount: 30,
-      ),
-      ],
-      fullDescription: "Burritos are often associated with Mexican cuisine but have become popular worldwide. They can be served in a variety of styles, including grilled, steamed, or baked. Some common variations include burrito bowls, where the ingredients are served in a bowl without the tortilla, and breakfast burritos, which include breakfast ingredients like eggs and bacon.",
-      indgredians: "Tortilla\nRice\nLettuce or shredded cabbage\nTomatoes\nBell peppers\nSour Cream\nHot Sauce"
-    ),
-    Data(
-        image: "https://drive.google.com/uc?id=1tjD72CdSikv3Vpi6nJKmPH8Ywstgizsp",
-        name: "Fruit salad",
-        description: "Popular domburi dish consisteing\nof vegs and onions served over a bowl of\nnuts.The meat and onion are cooked in a\nmixture of soy sauce, mirin,\nsugar and sake.",
+        image: "https://drive.google.com/uc?id=1Up5WaN3XI_KptLEjG7zhjNwmDAypPsex",
+        name: "Charred Chicken With Sweet Potatoes\nand Oranges",
+        description: "This is a flavorful and well-balanced dish\nthat combines thesmokiness of charred\nchickenwith the sweetness of roasted\nsweet potatoes and the citrusy\nbrightness of oranges.",
         author: "Penelope Cruz",
         authorImage: "https://drive.google.com/uc?id=1ZQbxVrsl84ZVQuP4CNU4c4TpzHIkuHPY",
-        calory: 2.5,
-        fullDescription: "Fruit salad breakfast is a refreshing and nutritious morning dish made by combining a variety of fresh fruits. It typically includes a colorful mix of fruits such as berries, melons, citrus, and tropical fruits, chopped and served together. This light and healthy option provides a burst of vitamins, antioxidants, and natural sweetness to start the day on a delicious and energizing note.\n\nThis breakfast option is not only visually appealing but also packed with essential nutrients like vitamins, minerals, and fiber.",
-      indgredians: "Strawberries\nBlueberries\nPineapple chunks\nWatermelon cubes\nGrapes (red or green)\nKiwi slices\nOrange segments"
+        calory: 450,
+        nutritions: [
+          Nutritions(
+              name: "Carbohydrates",
+              amount: 60
+          ),
+          Nutritions(
+            name: "Fat",
+            amount: 20,
+          ),
+          Nutritions(
+            name: "Protein",
+            amount: 30,
+          ),
+        ],
+        fullDescription: "Charred Chicken with Sweet Potatoes and Oranges is a flavorful and well-balanced dish that combines the smokiness of charred chicken with the sweetness of roasted sweet potatoes and the citrusy brightness of oranges.\n\nThe combination of charred chicken, sweet potatoes, and citrusy oranges creates a well-balanced and satisfying meal that is both visually appealing and delicious.",
+        indgredians: "Chicken \nSweet Potatoes\nOranges\nSeasonings: cumin, paprika, garlic powder, salt, and pepper.\nBell peppers\nHoney or Maple Syrup (Optional)"
+    ),
+    Data(
+        image: "https://drive.google.com/uc?id=1vM9N32v9Awm41KZYdmilQocYjf9aabi2",
+        name: "Kadhai Paneer",
+        description: "Kadhai Paneer is a popular and\nflavorful North Indian dish that\nfeatures paneer(Indian cottage\ncheese) cooked in a\nspiced tomato-based gravy.",
+        author: "Penelope Cruz",
+        authorImage: "https://drive.google.com/uc?id=1ZQbxVrsl84ZVQuP4CNU4c4TpzHIkuHPY",
+        calory: 400,
+        nutritions: [
+          Nutritions(
+              name: "Carbohydrates",
+              amount: 20
+          ),
+          Nutritions(
+            name: "Fat",
+            amount: 30,
+          ),
+          Nutritions(
+            name: "Protein",
+            amount: 20,
+          ),
+        ],
+        fullDescription: "Kadhai Paneer is a popular and flavorful North Indian dish that features paneer (Indian cottage cheese) cooked in a spiced tomato-based gravy. The name Kadhai refers to the traditional Indian wok-like cooking utensil called a kadhai or karahi, which is often used to prepare this dish. The use of the kadhai imparts a unique taste and texture to the dish.",
+        indgredians: "Paneer (Indian Cottage Cheese)\nTomatoes\nCapsicum (Bell Peppers)\nOnions\nGinger and Garlic\nGreen Chilies\nKadhai Masala\nFresh Coriander\nOther Spices: Common spices include turmeric, red chili powder, garam masala"
 
     ),
   ];

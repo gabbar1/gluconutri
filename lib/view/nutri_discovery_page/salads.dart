@@ -13,28 +13,28 @@ class NutriDiscoverySalads extends StatefulWidget {
 class _NutriDiscoverySaladsState extends State<NutriDiscoverySalads> {
   List<Data> item = <Data>[
     Data(
-        image: "https://drive.google.com/uc?id=1vOPYOcb54WzDKteyNbuyiSnTNDB78djF",
-        name: "Italian Style california Buretto combo",
-        description: "Popular domburi dish consisteing\nof vegs and onions served over a bowl of\nnuts.The meat and onion are cooked in a\nmixture of soy sauce, mirin,\nsugar and sake.",
+        image: "https://drive.google.com/uc?id=1MTRqNOH1Pgv1h2_kunC7rxCLGQLeZDST",
+        name: "Bean-Salad",
+        description: "Bean salads are nutritious and\nflavorful dishes that typically\nfeature a variety of beans\nas the main ingredient",
         author: "Penelope Cruz",
         authorImage: "https://drive.google.com/uc?id=1ZQbxVrsl84ZVQuP4CNU4c4TpzHIkuHPY",
-        calory: 2.5,
+        calory: 150,
         nutritions: [
           Nutritions(
               name: "Carbohydrates",
-              amount: 50
+              amount: 30
           ),
           Nutritions(
             name: "Fat",
-            amount: 10,
+            amount: 5,
           ),
           Nutritions(
             name: "Protein",
-            amount: 30,
+            amount: 18,
           ),
         ],
-        fullDescription: "Burritos are often associated with Mexican cuisine but have become popular worldwide. They can be served in a variety of styles, including grilled, steamed, or baked. Some common variations include burrito bowls, where the ingredients are served in a bowl without the tortilla, and breakfast burritos, which include breakfast ingredients like eggs and bacon.",
-        indgredians: "Tortilla\nRice\nLettuce or shredded cabbage\nTomatoes\nBell peppers\nSour Cream\nHot Sauce"
+        fullDescription: "Bean salads are nutritious and flavorful dishes that typically feature a variety of beans as the main ingredient. These salads are known for their versatility, as they can be customized with different types of beans, vegetables, herbs, and dressings. Here's a general description of a bean salad.\nAdditional Ingredients: You can add other ingredients to tailor the salad to your taste, such as feta or goat cheese, olives, corn, or even nuts and seeds for added crunch.",
+        indgredians: "Beans\nVegetables\nLettuce or shredded cabbage\nTomatoes\nBell peppers\nHerbs\nolive oil\nVinegar, lemon juice, garlic"
     ),
     Data(
         image: "https://drive.google.com/uc?id=1tjD72CdSikv3Vpi6nJKmPH8Ywstgizsp",

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_profile_picture/flutter_profile_picture.dart';
+import 'package:get/get.dart';
+import 'package:gluconutri/ui/home/controller/home_controller.dart';
 
 import 'profile_settings.dart';
 
@@ -10,26 +13,16 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  HomeController homeController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: Container(
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.white,
-          ),
-          padding: const EdgeInsets.all(3.0),
-          child: const CircleAvatar(
-            backgroundImage: AssetImage(
-                'assets/Images/profile.png'),
-            radius: 20.0,
-            backgroundColor:
-            Colors.transparent,
-          ),
-        ),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context, );
+        },icon: Icon(Icons.arrow_back_ios_new,color: Colors.black)),
         title: Text("Profile",style: TextStyle(color: Colors.black),),
         actions: [
           IconButton(
@@ -52,14 +45,38 @@ class _ProfilePageState extends State<ProfilePage> {
             Center(
               child: Column(
                 children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 64,
-                    backgroundImage: AssetImage('assets/Images/profile.png'),
-                  ),
-                  Text("Elezabeth Swann",style: TextStyle(fontWeight: FontWeight.bold),),
+                  Obx((){
+                    if(homeController.getUserDetails.profile!=null)
+                    return InkWell(
+                      onTap: (){
+
+                      },
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(homeController.getUserDetails.profile.toString()),
+                        radius: 60.0,
+                        backgroundColor:
+                        Colors.transparent,
+                      ),
+                    );
+                    else
+                    return ClipRRect(
+                      borderRadius: BorderRadius.circular(2000.0),
+                      child: InkWell(
+                        onTap: (){
+
+                        },
+                        child: ProfilePicture(
+                          name: homeController.getUserDetails.name.toString(),
+                          radius: 61,
+                          fontsize: 51,
+                        ),
+                      ),
+                    );
+                  }),
+                  SizedBox(height: 20,),
+                  Obx(()=>Text(homeController.getUserDetails.name!,style: TextStyle(fontWeight: FontWeight.bold),)),
                   SizedBox(height: 5,),
-                  Text("elezabeth.swann@gmail.com",),
+                  Obx(() => Text(homeController.getUserDetails.email!,)),
                 ],
               ),
             ),

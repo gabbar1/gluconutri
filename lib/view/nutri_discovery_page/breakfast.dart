@@ -13,6 +13,30 @@ class _NutriDiscoveryBreakfastState extends State<NutriDiscoveryBreakfast> {
 
   List<Data> item = <Data>[
     Data(
+        image: "https://drive.google.com/uc?id=1P6jPpEg8iTWTx3paFg1ren-hqZQhFl82",
+        name: "Grill sandwich",
+        description: "Grilled sandwiches are a versatile\nand quick meal option,enjoyed by\npeopleof all ages.They can\nbe served as astandalone snack,\nlunch, or dinner",
+        author: "Penelope Cruz",
+        authorImage: "https://drive.google.com/uc?id=1ZQbxVrsl84ZVQuP4CNU4c4TpzHIkuHPY",
+        calory: 160,
+        nutritions: [
+          Nutritions(
+              name: "Carbohydrates",
+              amount: 60
+          ),
+          Nutritions(
+            name: "Fat",
+            amount: 15,
+          ),
+          Nutritions(
+            name: "Protein",
+            amount: 8,
+          ),
+        ],
+        fullDescription: "Burritos are often associated with Mexican cuisine but have become popular worldwide. They can be served in a variety of styles, including grilled, steamed, or baked. Some common variations include burrito bowls, where the ingredients are served in a bowl without the tortilla, and breakfast burritos, which include breakfast ingredients like eggs and bacon.",
+        indgredians: "Bread \nCheese \nButter or oil\nVegetables\nBell peppers\nSour Cream\nHot Sauce"
+    ),
+    Data(
         image: "https://drive.google.com/uc?id=1vOPYOcb54WzDKteyNbuyiSnTNDB78djF",
         name: "Italian Style california Buretto combo",
         description: "Popular domburi dish consisteing\nof vegs and onions served over a bowl of\nnuts.The meat and onion are cooked in a\nmixture of soy sauce, mirin,\nsugar and sake.",
@@ -35,17 +59,6 @@ class _NutriDiscoveryBreakfastState extends State<NutriDiscoveryBreakfast> {
         ],
         fullDescription: "Burritos are often associated with Mexican cuisine but have become popular worldwide. They can be served in a variety of styles, including grilled, steamed, or baked. Some common variations include burrito bowls, where the ingredients are served in a bowl without the tortilla, and breakfast burritos, which include breakfast ingredients like eggs and bacon.",
         indgredians: "Tortilla\nRice\nLettuce or shredded cabbage\nTomatoes\nBell peppers\nSour Cream\nHot Sauce"
-    ),
-    Data(
-        image: "https://drive.google.com/uc?id=1tjD72CdSikv3Vpi6nJKmPH8Ywstgizsp",
-        name: "Fruit salad",
-        description: "Popular domburi dish consisteing\nof vegs and onions served over a bowl of\nnuts.The meat and onion are cooked in a\nmixture of soy sauce, mirin,\nsugar and sake.",
-        author: "Penelope Cruz",
-        authorImage: "https://drive.google.com/uc?id=1ZQbxVrsl84ZVQuP4CNU4c4TpzHIkuHPY",
-        calory: 2.5,
-        fullDescription: "Fruit salad breakfast is a refreshing and nutritious morning dish made by combining a variety of fresh fruits. It typically includes a colorful mix of fruits such as berries, melons, citrus, and tropical fruits, chopped and served together. This light and healthy option provides a burst of vitamins, antioxidants, and natural sweetness to start the day on a delicious and energizing note.\n\nThis breakfast option is not only visually appealing but also packed with essential nutrients like vitamins, minerals, and fiber.",
-        indgredians: "Strawberries\nBlueberries\nPineapple chunks\nWatermelon cubes\nGrapes (red or green)\nKiwi slices\nOrange segments"
-
     ),
   ];
 //
