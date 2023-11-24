@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:gluconutri/view/nutri_discovery_page/controller/add_calory_controller.dart';
 import 'package:gluconutri/view/nutri_discovery_page/prime_plate.dart';
 
 class NutriDiscoveryItemDetails extends StatefulWidget {
@@ -19,7 +21,7 @@ class _NutriDiscoveryItemDetailsState extends State<NutriDiscoveryItemDetails> {
   }
 
 
-
+AddCalory addCalory = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +32,7 @@ class _NutriDiscoveryItemDetailsState extends State<NutriDiscoveryItemDetails> {
               children: [
                 Container(
                   height: 220,
-                  decoration: BoxDecoration(
+                  decoration:const BoxDecoration(
                     color: Color(0xFF651ECC),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(40.0),
@@ -51,7 +53,6 @@ class _NutriDiscoveryItemDetailsState extends State<NutriDiscoveryItemDetails> {
                     ),
                   ),
                 ),
-
                 Padding(
                   padding: const EdgeInsets.only(top: 100.0,right: 20,left: 20),
                   child: Column(
@@ -59,7 +60,7 @@ class _NutriDiscoveryItemDetailsState extends State<NutriDiscoveryItemDetails> {
                     children: [
                       Text(
                         widget.data.name.toString(),
-                        style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                        style:const TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -72,7 +73,7 @@ class _NutriDiscoveryItemDetailsState extends State<NutriDiscoveryItemDetails> {
                               Row(
                                 children: [
                                   Image(image: AssetImage("assets/Images/fire.png"),color: Colors.red,height: 15,),
-                                  Text("350 Kcal",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 12),)
+                                  Text("${widget.data.calory.toString()} Kcal",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 12),)
                                 ],
                               ),
                               Container(
@@ -84,6 +85,7 @@ class _NutriDiscoveryItemDetailsState extends State<NutriDiscoveryItemDetails> {
                               Row(
                                 children: [
                                   Image(image: AssetImage("assets/Images/clock.png"),color: Colors.green,height: 15,),
+                                  SizedBox(width: 5,),
                                   Text("45 min",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 12),)
                                 ],
                               ),
@@ -107,62 +109,31 @@ class _NutriDiscoveryItemDetailsState extends State<NutriDiscoveryItemDetails> {
                           Text("Nutritions",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
+                            children:List.generate(widget.data.nutritions!.length, (index) {
+                              return Column(
                                 children: [
                                   Text(
-                                      //widget.data.nutritions!.first.amount.toString(),
-                                    "35",
-                                    style: TextStyle(fontSize: 42,fontWeight: FontWeight.bold,color: Color(0xFF651ECC)),),
+                                    widget.data.nutritions![index].amount.toString(),
+                                    style: TextStyle(fontSize: 42,fontWeight: FontWeight.bold,color:index ==0? Color(0xFF651ECC):index ==1?Colors.blueAccent:Colors.orange),),
                                   Row(
-                                    children: [
+                                    children:
+                                    [
                                       Container(
                                         height: 13,
                                         width: 13,
-                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(3),color: Color(0xFF651ECC)),
+                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(3),color: index ==0? Color(0xFF651ECC):index ==1?Colors.blueAccent:Colors.orange),
                                       ),
                                       SizedBox(width: 5,),
                                       Text(
-                                       // widget.data.nutritions.map((e) => e.name)
-                                        "Carbohydrates",
+                                        widget.data.nutritions![index].name.toString()
+                                        ,
                                         style: TextStyle(color: Colors.black),)
                                     ],
                                   )
                                 ],
-                              ),
-                              Column(
-                                children: [
-                                  Text("7.2",style: TextStyle(fontSize: 42,fontWeight: FontWeight.bold,color:  Colors.blueAccent),),
-                                  Row(
-                                    children: [
-                                      Container(
-                                        height: 13,
-                                        width: 13,
-                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(3),color:  Colors.blueAccent),
-                                      ),
-                                      SizedBox(width: 5,),
-                                      Text("Protein",style: TextStyle(color: Colors.black),)
-                                    ],
-                                  )
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Text("0.2",style: TextStyle(fontSize: 42,fontWeight: FontWeight.bold,color: Colors.orange),),
-                                  Row(
-                                    children: [
-                                      Container(
-                                        height: 13,
-                                        width: 13,
-                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(3),color: Colors.orange),
-                                      ),
-                                      SizedBox(width: 5,),
-                                      Text("Fat",style: TextStyle(color: Colors.black),)
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ],
+                              );
+                            })
+
                           ),
                           SizedBox(height: 20,),
                           Text("Description",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
@@ -176,13 +147,15 @@ class _NutriDiscoveryItemDetailsState extends State<NutriDiscoveryItemDetails> {
                           Text(
                             widget.data.indgredians.toString(),
                             style: TextStyle(fontWeight: FontWeight.w300,color: Colors.grey,fontSize: 16),),
+                          SizedBox(height: 10,),
 
 
                         ],
                       ),
                     ],
                   ),
-                )
+                ),
+                SizedBox(height: 80,),
 
               ],
             ),
@@ -190,18 +163,34 @@ class _NutriDiscoveryItemDetailsState extends State<NutriDiscoveryItemDetails> {
                 top: 140,
                 left: 110,
                 child: ClipOval(child: Image.network(widget.data.image.toString(),height: 175,width: 175,fit: BoxFit.cover,))),
-            /*Positioned(
-                top: 315,
-                left: 140,
-                child:Text(
-                  //widget.data.name.toString(),
-                  "Indian Buretto",
-                  style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
-            ),*/
+
 
           ],
         ),
       ),
+      floatingActionButton: Obx((){
+        if(addCalory.getIsAdd ==true){
+          return  Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: InkWell(onTap: (){
+              addCalory.addTracking(carbohydrates: widget.data.nutritions![0].amount!, fat: widget.data.nutritions![1].amount!, protein: widget.data.nutritions![2].amount!, cal: widget.data.calory!,name: widget.data.name!,image: widget.data.image!);
+            },
+              child: Container(
+                height: 55,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Color(0xFF651ECC)
+                ),
+                child: Center(child: Text("Add",style: TextStyle(color: Colors.white),),),
+              ),
+            ),
+          );
+        }else{
+          return SizedBox();
+        }
+
+      }),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
