@@ -8,10 +8,27 @@ class MyMenuFavorites extends StatefulWidget {
 }
 
 class _MyMenuFavoritesState extends State<MyMenuFavorites> {
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 2), () {
+      setState(() {
+        isLoading = false;
+      });
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: favoriteFoodList()
+        body: isLoading ? buildingScreen() : favoriteFoodList()
+    );
+  }
+
+  Widget buildingScreen(){
+    return Center(
+      child: CircularProgressIndicator(),
     );
   }
   favoriteFoodList(){

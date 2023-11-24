@@ -3,7 +3,7 @@ import 'package:gluconutri/view/nutri_discovery_page/nutri_discovery_categories.
 import 'package:gluconutri/view/nutri_discovery_page/nutri_discovery_favorites.dart';
 
 class NutriDiscoveryPage extends StatefulWidget {
-  const NutriDiscoveryPage({Key? key}) : super(key: key);
+
 
   @override
   State<NutriDiscoveryPage> createState() => _NutriDiscoveryPageState();

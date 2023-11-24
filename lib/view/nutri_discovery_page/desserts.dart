@@ -63,9 +63,25 @@ class _NutriDiscoveryDessertsState extends State<NutriDiscoveryDesserts> {
   ];
 //
   List<Data> get getItem => item;
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 2), () {
+      setState(() {
+        isLoading = false;
+      });
+    });
+  }
+  Widget buildingScreen(){
+    return Center(
+      child: CircularProgressIndicator(),
+    );
+  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return isLoading ? buildingScreen() : Scaffold(
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 15.0,right: 15),

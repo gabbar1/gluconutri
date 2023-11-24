@@ -8,15 +8,38 @@ class MyMenuCategories extends StatefulWidget {
   State<MyMenuCategories> createState() => _MyMenuCategoriesState();
 }
 
-class _MyMenuCategoriesState extends State<MyMenuCategories> {
+class _MyMenuCategoriesState extends State<MyMenuCategories> {  String primePalteImage = "https://drive.google.com/uc?id=1P6jPpEg8iTWTx3paFg1ren-hqZQhFl82";
+String snacksImage = "https://drive.google.com/uc?id=1xWs6FcnmlhKRRw44yxTMFv0oYBCl96R2";
+String dessertsImage = "https://drive.google.com/uc?id=1SBKbPezOLGtYqYMfdAssPw3SXP7hn5rE";
+String saladsImage = "https://drive.google.com/uc?id=1mDeftpFSan2CVey6LSXq4_wibztYVWZJ";
+bool isLoading = true;
+
+@override
+void initState() {
+  super.initState();
+  Future.delayed(Duration(seconds: 2), () {
+    setState(() {
+      isLoading = false;
+    });
+  });
+}
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: foodMenu(),
+      body: isLoading ? buildingScreen() : foodMenu(),
     );
   }
-  foodMenu(){
-    return Padding(padding: EdgeInsets.only(left: 15,right: 15,top: 30),
+
+Widget buildingScreen(){
+  return Center(
+    child: CircularProgressIndicator(),
+  );
+}
+foodMenu(){
+  return Padding(padding: EdgeInsets.only(left: 15,right: 15,top: 30),
+    child: SingleChildScrollView(
       child: Column(
         children: [
           Row(
@@ -38,6 +61,63 @@ class _MyMenuCategoriesState extends State<MyMenuCategories> {
                       ),
                     ],
                   ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Card(
+                        child: Stack(
+                          children: [
+                            Container(
+                              color: Colors.white,
+                              height: 140,
+                              width: MediaQuery.of(context).size.width/2.5,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                    height: 140,
+                                    width: MediaQuery.of(context).size.width/2.5,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: NetworkImage(primePalteImage)
+                                        )
+                                    ),
+                                    child: CustomPaint(
+                                      painter: TrianglePainter(),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Positioned(
+                                bottom: 15,
+                                left: 10,
+                                child: Text("Prime Plate",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
+
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: (){
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(1, 1,), // changes the position of the shadow
+                      ),
+                    ],
+                  ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Card(
@@ -45,7 +125,7 @@ class _MyMenuCategoriesState extends State<MyMenuCategories> {
                         children: [
                           Container(
                             height: 140,
-                            width: MediaQuery.of(context).size.width/2.4,
+                            width: MediaQuery.of(context).size.width/2.5,
                           ),
                           Positioned(
                               top: 0,
@@ -54,43 +134,9 @@ class _MyMenuCategoriesState extends State<MyMenuCategories> {
                           Positioned(
                               bottom: 15,
                               left: 10,
-                              child: Text("Prime Plate",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
+                              child: Text("Breakfast",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
                         ],
                       ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(1, 1,), // changes the position of the shadow
-                    ),
-                  ],
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Card(
-                    child: Stack(
-                      children: [
-                        Container(
-                          height: 140,
-                          width: MediaQuery.of(context).size.width/2.4,
-                        ),
-                        Positioned(
-                            top: 0,
-                            right: 0,
-                            child: Image(image: AssetImage("assets/Images/omlate.png"),height: 140,width: 140,)),
-                        Positioned(
-                            bottom: 15,
-                            left: 10,
-                            child: Text("Breakfast",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
-                      ],
                     ),
                   ),
                 ),
@@ -102,70 +148,116 @@ class _MyMenuCategoriesState extends State<MyMenuCategories> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(1, 1,), // changes the position of the shadow
-                    ),
-                  ],
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Card(
-                    child: Stack(
-                      children: [
-                        Container(
-                          height: 140,
-                          width: MediaQuery.of(context).size.width/2.4,
+              InkWell(
+                onTap: (){
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(1, 1,), // changes the position of the shadow
+                      ),
+                    ],
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Card(
+                        child: Stack(
+                          children: [
+                            Container(
+                              color: Colors.white,
+                              height: 140,
+                              width: MediaQuery.of(context).size.width/2.5,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                    height: 140,
+                                    width: MediaQuery.of(context).size.width/2.5,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: NetworkImage(saladsImage)
+                                        )
+                                    ),
+                                    child: CustomPaint(
+                                      painter: TrianglePainter(),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Positioned(
+                                bottom: 15,
+                                left: 10,
+                                child: Text("Salads",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
+
+                          ],
                         ),
-                        Positioned(
-                            top: 0,
-                            right: 0,
-                            child: Image(image: AssetImage("assets/Images/omlate.png"),height: 140,width: 140,)),
-                        Positioned(
-                            bottom: 15,
-                            left: 10,
-                            child: Text("Salads",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
-                      ],
+                      ),
                     ),
                   ),
                 ),
               ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(1, 1,), // changes the position of the shadow
-                    ),
-                  ],
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Card(
-                    child: Stack(
-                      children: [
-                        Container(
-                          height: 140,
-                          width: MediaQuery.of(context).size.width/2.4,
+              InkWell(
+                onTap: (){
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(1, 1,), // changes the position of the shadow
+                      ),
+                    ],
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Card(
+                        child: Stack(
+                          children: [
+                            Container(
+                              color: Colors.white,
+                              height: 140,
+                              width: MediaQuery.of(context).size.width/2.5,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                    height: 140,
+                                    width: MediaQuery.of(context).size.width/2.5,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: NetworkImage(dessertsImage)
+                                        )
+                                    ),
+                                    child: CustomPaint(
+                                      painter: TrianglePainter(),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Positioned(
+                                bottom: 15,
+                                left: 10,
+                                child: Text("Desserts",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
+
+                          ],
                         ),
-                        Positioned(
-                            top: 0,
-                            right: 0,
-                            child: Image(image: AssetImage("assets/Images/omlate.png"),height: 140,width: 140,)),
-                        Positioned(
-                            bottom: 15,
-                            left: 10,
-                            child: Text("Desserts",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
-                      ],
+                      ),
                     ),
                   ),
                 ),
@@ -199,7 +291,9 @@ class _MyMenuCategoriesState extends State<MyMenuCategories> {
                       Positioned(
                           top: 0,
                           right: 0,
-                          child: Image(image: AssetImage("assets/Images/food1.png"),height: 140,width: 140,)),
+                          //child: Image.network(primePalteImage),height: 140,width: 140,
+                          child: Image(image: AssetImage("assets/Images/food1.png"),height: 140,width: 140,)
+                      ),
                       Positioned(
                           bottom: 15,
                           left: 10,
@@ -210,7 +304,7 @@ class _MyMenuCategoriesState extends State<MyMenuCategories> {
               ),
             ),
           ),
-          /*Container(
+          Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
@@ -218,7 +312,7 @@ class _MyMenuCategoriesState extends State<MyMenuCategories> {
                   color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 5,
                   blurRadius: 7,
-                  offset: Offset(1, 2,), // changes the position of the shadow
+                  offset: Offset(1, 1,), // changes the position of the shadow
                 ),
               ],
             ),
@@ -230,79 +324,43 @@ class _MyMenuCategoriesState extends State<MyMenuCategories> {
                   child: Stack(
                     children: [
                       Container(
+                        color: Colors.white,
                         height: 140,
                         width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              height: 140,
+                              width: MediaQuery.of(context).size.width/2.5,
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage(snacksImage)
+                                  )
+                              ),
+                              child: CustomPaint(
+                                painter: TrianglePainter(),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      Positioned(
-                          top: 0,
-                          right: 0,
-                          child: Image(image: AssetImage("assets/Images/food1.png"),height: 140,width: 140,)),
                       Positioned(
                           bottom: 15,
                           left: 10,
                           child: Text("Snacks",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
+
                     ],
                   ),
                 ),
               ),
             ),
-          ),*/
-      Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(1, 1,), // changes the position of the shadow
-            ),
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Card(
-              child: Stack(
-                children: [
-                  Container(
-                    color: Colors.white,
-                    height: 140,
-                    width: MediaQuery.of(context).size.width,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Container(
-                          height: 140,
-                          width: MediaQuery.of(context).size.width/2.5,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage("assets/Images/breakfast1.png"),)
-                          ),
-                          child: CustomPaint(
-                            painter: TrianglePainter(),
-                          ),
-    ),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                      bottom: 15,
-                      left: 10,
-                      child: Text("Snacks",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
-
-                ],
-              ),
-            ),
           ),
-        ),
-      ),
         ],
-      ),);
-  }
-
+      ),
+    ),);
+}
 }
 
 class TrianglePainter extends CustomPainter {

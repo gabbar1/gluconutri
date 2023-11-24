@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gluconutri/view/extra_menu/extra_menu.dart';
 import 'package:gluconutri/view/fun_gluco_page/fun_gluco.dart';
 import 'package:gluconutri/view/gluco_nutri_page/gluco_nutri_page.dart';
+import 'package:gluconutri/view/gluco_track_page/gluco_track_page.dart';
 import 'package:gluconutri/view/my_menu_page/my_menu_page.dart';
 import 'package:gluconutri/view/nutri_discovery_page/nutri_discovery_page.dart';
 
@@ -118,7 +119,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
           const SizedBox(height: 20,),
           InkWell(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> ExtraMenu()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> GlucoTrackPage()));
             },
             child: Container(
               height: 150,

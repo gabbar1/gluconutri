@@ -45,6 +45,8 @@ dependencies:
   flutter_profile_picture: ^2.0.0
   firebase_storage: ^11.4.0
   image_picker: ^1.0.4
+  easy_date_timeline: ^1.0.2
+  pie_chart: ^5.4.0
 
 dev_dependencies:
   flutter_test:

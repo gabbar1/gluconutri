@@ -5,6 +5,8 @@ import 'package:gluconutri/firebase_options.dart';
 import 'package:gluconutri/ui/loginScreen/auth_authenticator.dart';
 import 'package:gluconutri/ui/loginScreen/controller/login_controller.dart';
 
+import 'view/nutri_discovery_page/controller/add_calory_controller.dart';
+
 
 void main() async{
 
@@ -19,6 +21,7 @@ class MyApp extends StatelessWidget {
 
   LoginController loginController = Get.put(LoginController());
   // This widget is the root of your application.
+  AddCalory addCalory = Get.put(AddCalory());
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
