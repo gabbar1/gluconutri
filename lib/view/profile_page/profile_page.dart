@@ -1,7 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import 'package:get/get.dart';
 import 'package:gluconutri/ui/home/controller/home_controller.dart';
+import 'package:gluconutri/ui/loginScreen/auth_authenticator.dart';
+import 'package:gluconutri/utils/navigation.dart';
+import 'package:gluconutri/view/dashboard_page/dashboard_navigator/dashboard_navigator.dart';
 
 import 'profile_settings.dart';
 
@@ -156,6 +160,26 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               title: Text("Bill Details",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
               trailing: Icon(Icons.arrow_forward_ios_outlined),
+            ),
+            SizedBox(height: 10,),
+            InkWell(
+              onTap: (){
+                FirebaseAuth.instance.signOut();
+                CustomNavigation.pushAndRemoveUntil(Authenticator());
+              },
+              child: ListTile(
+                leading:  Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey.shade200
+                  ),
+                  child: Icon(Icons.logout),
+                ),
+                title: Text("Logout",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
+                trailing: Icon(Icons.arrow_forward_ios_outlined),
+              ),
             ),
           ],
         ),

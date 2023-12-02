@@ -33,6 +33,7 @@ class AddCalory extends GetxController{
         "image":image
       }).then((value) {
         closeLoader();
+        getTracking();
       CustomNavigation.pop();
       CustomNavigation.pop();
       CustomNavigation.pop();
@@ -63,6 +64,7 @@ class AddCalory extends GetxController{
 
     // Convert currentDate to a Firestore Timestamp
     Timestamp startOfDay = Timestamp.fromDate(getCurrentSelectedDate);
+
     try{
 
       FirebaseFirestore.instance.collection("tracking").where("user",isEqualTo: FirebaseAuth.instance.currentUser!.uid)..where('date', isGreaterThanOrEqualTo: startOfDay)

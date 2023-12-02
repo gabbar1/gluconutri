@@ -9,7 +9,8 @@ import 'package:pie_chart/pie_chart.dart';
 
 
 class GlucoTrackPage extends StatefulWidget {
-
+  GlucoTrackPage({Key? key,this.rout}) : super(key: key);
+  bool? rout =false;
   @override
   State<GlucoTrackPage> createState() => _GlucoTrackPageState();
 }
@@ -33,7 +34,7 @@ class _GlucoTrackPageState extends State<GlucoTrackPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: widget.rout == true ?PreferredSize(
         preferredSize:const  Size.fromHeight(80),
         child: ClipRRect(
           borderRadius:const BorderRadius.only(
@@ -53,7 +54,7 @@ class _GlucoTrackPageState extends State<GlucoTrackPage> {
             title:const Text("GLUCOTRACK"),
           ),
         ),
-      ),
+      ):null,
       body: glucoTrack(),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
@@ -176,6 +177,7 @@ class _GlucoTrackPageState extends State<GlucoTrackPage> {
       onDateChange: (selectedDate) {
         addCalory.combinedData.clear();
         addCalory.setCurrentSelectedDate = selectedDate;
+        print(addCalory.getCurrentSelectedDate);
         addCalory.getTracking();
         //selectedDate the new date selected.
       },

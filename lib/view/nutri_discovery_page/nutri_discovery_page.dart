@@ -59,15 +59,9 @@ class _NutriDiscoveryPageState extends State<NutriDiscoveryPage> with TickerProv
             controller: _controller,
             indicatorWeight:.1,
             indicatorSize: TabBarIndicatorSize.label,
-            /*indicator: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.pink,
-            ),*/
-
-            //indicatorColor: Colors.pink,
             unselectedLabelColor: Colors.black12,
             labelColor: Colors.black,
-            tabs: [
+            tabs: const[
               Text("Categories"),
               Text("Favorites"),
             ],
@@ -75,7 +69,7 @@ class _NutriDiscoveryPageState extends State<NutriDiscoveryPage> with TickerProv
           Expanded(
             child: TabBarView(
               controller: _controller,
-              children: [
+              children: const [
                 NutriDiscoveryCategories(),
                 NutriDiscoveryFavorites()
               ],

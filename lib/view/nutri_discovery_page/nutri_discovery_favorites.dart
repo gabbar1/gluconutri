@@ -69,14 +69,14 @@ class _NutriDiscoveryFavoritesState extends State<NutriDiscoveryFavorites> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 1), () {
       setState(() {
         isLoading = false;
       });
     });
   }
   Widget buildingScreen(){
-    return Center(
+    return const Center(
       child: CircularProgressIndicator(),
     );
   }
@@ -88,86 +88,62 @@ class _NutriDiscoveryFavoritesState extends State<NutriDiscoveryFavorites> {
     );
   }
   favoriteFoodList(){
-    return Padding(padding: EdgeInsets.only(left: 15,right: 15,top: 30),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height,
-              child: Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(childAspectRatio:.9,crossAxisCount: 2,crossAxisSpacing: 10,mainAxisSpacing: 15,),
-                      itemCount: item.length,
-                      itemBuilder: (context,index){
-                    return InkWell(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>NutriDiscoveryItemDetails(data: item[index],)));
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset: Offset(2, 3,), // changes the position of the shadow
-                            ),
-                          ],
-                        ),
-                        child: Card(
-                          child: Container(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Stack(
-                                    children: [
-                                      Image.network(getItem[index].image.toString(),height: 100,fit: BoxFit.fill),
-                                      //Image(image: AssetImage("assets/Images/favoritefood.png"),height: 100),
-                                      Positioned(
-                                        top:5,
-                                        right: 5,
-                                        child: Container(
-                                            height: 25,
-                                            width: 25,
-                                            decoration: BoxDecoration(shape: BoxShape.circle,color: Colors.white),
-                                            child: Icon(Icons.favorite,color: Colors.red,size: 20,)),
-                                      ),
-                                    ],
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 8.0,right: 8),
-                                    child: Text(
-                                      getItem[index].name ?? "name",
-                                      style: TextStyle(fontSize: 16),),
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Image(image: AssetImage("assets/Images/fire.png"),height: 12,),
-                                      Text(
-                                        "${getItem[index].calory.toString()}Kcal",
-                                        style: TextStyle(fontSize: 12,color: Colors.grey.shade400),),
-                                      SizedBox(width: 20,),
-                                      Image(image: AssetImage("assets/Images/clock.png"),height: 12,),
-
-                                      Text("45 min",style: TextStyle(fontSize: 12,color: Colors.grey.shade400),),
-                                    ],
-                                  ),
-                                  SizedBox(height: 1,)
-                                ],
-                              )),
-                        ),
+    return Padding(padding:const EdgeInsets.only(left: 15,right: 15,top: 30),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 10),
+        child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(childAspectRatio:.9,crossAxisCount: 2,crossAxisSpacing: 10,mainAxisSpacing: 15,),
+            itemCount: item.length,
+            itemBuilder: (context,index){
+              return InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>NutriDiscoveryItemDetails(data: item[index],)));
+                },
+                child: Card(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Stack(
+                        children: [
+                          Image.network(getItem[index].image.toString(),height: 100,fit: BoxFit.fill),
+                          //Image(image: AssetImage("assets/Images/favoritefood.png"),height: 100),
+                          Positioned(
+                            top:5,
+                            right: 5,
+                            child: Container(
+                                height: 25,
+                                width: 25,
+                                decoration: BoxDecoration(shape: BoxShape.circle,color: Colors.white),
+                                child: Icon(Icons.favorite,color: Colors.red,size: 20,)),
+                          ),
+                        ],
                       ),
-                    );
-                  }),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0,right: 8),
+                        child: Text(
+                          getItem[index].name ?? "name",
+                          style: TextStyle(fontSize: 16),),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          const SizedBox(width: 2,),
+                          const Image(image: AssetImage("assets/Images/fire.png"),height: 12,),
+                          Text(
+                            "${getItem[index].calory.toString()}Kcal",
+                            style: TextStyle(fontSize: 12,color: Colors.grey.shade400),),
+                          const SizedBox(width: 20,),
+                          const Image(image: AssetImage("assets/Images/clock.png"),height: 12,),
+                          Text("45 min",style: TextStyle(fontSize: 12,color: Colors.grey.shade400),),
+                          SizedBox(width: 2,),
+                        ],
+                      ),
+                      SizedBox(height: 1,)
+                    ],
+                  ),
                 ),
-              ),
-            )
-          ],
-        ),
+              );
+            }),
       ),
     );
   }

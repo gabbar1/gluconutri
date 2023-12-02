@@ -63,7 +63,7 @@ class _NutriDiscoverySeachPageState extends State<NutriDiscoverySeachPage> with 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(padding: EdgeInsets.only(left: 15),
+        Padding(padding: const EdgeInsets.only(left: 15),
           child:Column(
             children: [
               Container(

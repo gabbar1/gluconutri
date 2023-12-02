@@ -200,7 +200,7 @@ class _NutriDiscoverySearchAllState extends State<NutriDiscoverySearchAll> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 1), () {
       setState(() {
         isLoading = false;
       });
@@ -218,83 +218,72 @@ class _NutriDiscoverySearchAllState extends State<NutriDiscoverySearchAll> {
   @override
   Widget build(BuildContext context) {
     return isLoading ? buildingScreen() : Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 15.0,right: 15),
-          child: Column(
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height,
-                child: Expanded(
-                  child: ListView.builder(
-                      itemCount: item.length,
-                      itemBuilder: (context,index){
-                        return InkWell(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>NutriDiscoveryItemDetails(data: item[index],)));
-                          },
-                          child: Container(
-                            height: 165,
-                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Row(
+      body: Padding(
+        padding: const EdgeInsets.only(left: 15.0,right: 15),
+        child: ListView.builder(
+            itemCount: item.length,
+            itemBuilder: (context,index){
+              return InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>NutriDiscoveryItemDetails(data: item[index],)));
+                },
+                child: Container(
+                  height: 165,
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Row(
+                    children: [
+                      //Image(image: AssetImage("assets/Images/nutri_discovery_food.png"),height: 150,width: 140,),
+                      ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.network(getItem[index].image.toString(),height: 130,width: 140,fit: BoxFit.fill)
+                      ),
+                      SizedBox(width: 10),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0,bottom: 10),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 3,),
+                            Text(
+                              getItem[index].name ?? "name",
+                              //"Italian Style california Buretto combo",
+                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12,color: Colors.black),),
+                            Text(getItem[index].description.toString(),style: TextStyle(fontSize: 12,fontWeight: FontWeight.w200),),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                //Image(image: AssetImage("assets/Images/nutri_discovery_food.png"),height: 150,width: 140,),
-                                ClipRRect(
-                                    borderRadius: BorderRadius.circular(15),
-                                    child: Image.network(getItem[index].image.toString(),height: 130,width: 140,fit: BoxFit.fill)
+                                Row(
+                                  children: [
+                                    ClipOval(child: Image.network(getItem[index].authorImage.toString(),height: 22,width:22,fit: BoxFit.cover,)),
+                                    SizedBox(width: 5,),
+                                    Text(
+                                      getItem[index].author.toString(),
+                                      style: TextStyle(fontSize: 14,fontWeight: FontWeight.w200),)
+                                  ],
                                 ),
-                                SizedBox(width: 10),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 8.0,bottom: 10),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      SizedBox(height: 3,),
-                                      Text(
-                                        getItem[index].name ?? "name",
-                                        //"Italian Style california Buretto combo",
-                                        style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12,color: Colors.black),),
-                                      Text(getItem[index].description.toString(),style: TextStyle(fontSize: 12,fontWeight: FontWeight.w200),),
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              ClipOval(child: Image.network(getItem[index].authorImage.toString(),height: 22,width:22,fit: BoxFit.cover,)),
-                                              SizedBox(width: 5,),
-                                              Text(
-                                                getItem[index].author.toString(),
-                                                style: TextStyle(fontSize: 14,fontWeight: FontWeight.w200),)
-                                            ],
-                                          ),
-                                          SizedBox(width: 70,),
-                                          Container(
-                                            height: 20,
-                                            width: 20,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(color: Colors.grey),
-                                                borderRadius: BorderRadius.circular(6)
-                                            ),
-                                            child: Icon(Icons.arrow_forward,size: 18,color: Colors.grey,),
-                                          )
-                                        ],
-                                      ),
-                                      SizedBox(height: 3,),
-                                    ],
+                                SizedBox(width: 70,),
+                                Container(
+                                  height: 20,
+                                  width: 20,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(color: Colors.grey),
+                                      borderRadius: BorderRadius.circular(6)
                                   ),
+                                  child: Icon(Icons.arrow_forward,size: 18,color: Colors.grey,),
                                 )
                               ],
                             ),
-                          ),
-                        );
-                      }),
+                            SizedBox(height: 3,),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              )
-            ],
-          ),
-        ),
+              );
+            }),
       ),
     );
   }

@@ -20,7 +20,7 @@ class _NutriDiscoveryCategoriesState extends State<NutriDiscoveryCategories> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 1), () {
       setState(() {
         isLoading = false;
       });
@@ -33,12 +33,12 @@ class _NutriDiscoveryCategoriesState extends State<NutriDiscoveryCategories> {
     );
   }
   Widget buildingScreen(){
-    return Center(
+    return const Center(
       child: CircularProgressIndicator(),
     );
   }
   foodMenu(){
-    return Padding(padding: EdgeInsets.only(left: 15,right: 15,top: 30),
+    return Padding(padding: const EdgeInsets.only(left: 15,right: 15,top: 30),
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -49,55 +49,41 @@ class _NutriDiscoveryCategoriesState extends State<NutriDiscoveryCategories> {
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>NutriDiscoverySeachPage(initialTabIndex:1)));
                   },
-                  child: Container(
-                    decoration: BoxDecoration(
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(1, 1,), // changes the position of the shadow
-                        ),
-                      ],
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Card(
-                          child: Stack(
-                            children: [
-                              Container(
-                                color: Colors.white,
-                                height: 140,
-                                width: MediaQuery.of(context).size.width/2.5,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Container(
-                                      height: 140,
-                                      width: MediaQuery.of(context).size.width/2.5,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: NetworkImage(primePalteImage)
-                                          )
-                                      ),
-                                      child: CustomPaint(
-                                        painter: TrianglePainter(),
-                                      ),
+                      child: Card(
+                        child: Stack(
+                          children: [
+                            Container(
+                              color: Colors.white,
+                              height: 140,
+                              width: MediaQuery.of(context).size.width/2.5,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                    height: 140,
+                                    width: MediaQuery.of(context).size.width/2.5,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: NetworkImage(primePalteImage)
+                                        )
                                     ),
-                                  ],
-                                ),
+                                    child: CustomPaint(
+                                      painter: TrianglePainter(),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Positioned(
-                                  bottom: 15,
-                                  left: 10,
-                                  child: Text("Prime Plate",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
-
-                            ],
-                          ),
+                            ),
+                            const Positioned(
+                                bottom: 15,
+                                left: 10,
+                                child: Text("Prime Plate",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
+                          ],
                         ),
                       ),
                     ),
@@ -107,37 +93,24 @@ class _NutriDiscoveryCategoriesState extends State<NutriDiscoveryCategories> {
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>NutriDiscoverySeachPage(initialTabIndex:2)));
                   },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(1, 1,), // changes the position of the shadow
-                        ),
-                      ],
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Card(
-                        child: Stack(
-                          children: [
-                            Container(
-                              height: 140,
-                              width: MediaQuery.of(context).size.width/2.5,
-                            ),
-                            Positioned(
-                                top: 0,
-                                right: 0,
-                                child: Image(image: AssetImage("assets/Images/omlate.png"),height: 140,width: 140,)),
-                            Positioned(
-                                bottom: 15,
-                                left: 10,
-                                child: Text("Breakfast",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
-                          ],
-                        ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Card(
+                      child: Stack(
+                        children: [
+                          Container(
+                            height: 140,
+                            width: MediaQuery.of(context).size.width/2.5,
+                          ),
+                          Positioned(
+                              top: 0,
+                              right: 0,
+                              child: Image(image: AssetImage("assets/Images/omlate.png"),height: 140,width: 140,)),
+                          Positioned(
+                              bottom: 15,
+                              left: 10,
+                              child: Text("Breakfast",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
+                        ],
                       ),
                     ),
                   ),
@@ -153,55 +126,42 @@ class _NutriDiscoveryCategoriesState extends State<NutriDiscoveryCategories> {
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>NutriDiscoverySeachPage(initialTabIndex:3)));
                   },
-                  child: Container(
-                    decoration: BoxDecoration(
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(1, 1,), // changes the position of the shadow
-                        ),
-                      ],
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Card(
-                          child: Stack(
-                            children: [
-                              Container(
-                                color: Colors.white,
-                                height: 140,
-                                width: MediaQuery.of(context).size.width/2.5,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Container(
-                                      height: 140,
-                                      width: MediaQuery.of(context).size.width/2.5,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: NetworkImage(saladsImage)
-                                          )
-                                      ),
-                                      child: CustomPaint(
-                                        painter: TrianglePainter(),
-                                      ),
+                      child: Card(
+                        child: Stack(
+                          children: [
+                            Container(
+                              color: Colors.white,
+                              height: 140,
+                              width: MediaQuery.of(context).size.width/2.5,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                    height: 140,
+                                    width: MediaQuery.of(context).size.width/2.5,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: NetworkImage(saladsImage)
+                                        )
                                     ),
-                                  ],
-                                ),
+                                    child: CustomPaint(
+                                      painter: TrianglePainter(),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Positioned(
-                                  bottom: 15,
-                                  left: 10,
-                                  child: Text("Salads",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
+                            ),
+                            Positioned(
+                                bottom: 15,
+                                left: 10,
+                                child: Text("Salads",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
 
-                            ],
-                          ),
+                          ],
                         ),
                       ),
                     ),
@@ -211,55 +171,42 @@ class _NutriDiscoveryCategoriesState extends State<NutriDiscoveryCategories> {
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>NutriDiscoverySeachPage(initialTabIndex:4)));
                   },
-                  child: Container(
-                    decoration: BoxDecoration(
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(1, 1,), // changes the position of the shadow
-                        ),
-                      ],
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Card(
-                          child: Stack(
-                            children: [
-                              Container(
-                                color: Colors.white,
-                                height: 140,
-                                width: MediaQuery.of(context).size.width/2.5,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Container(
-                                      height: 140,
-                                      width: MediaQuery.of(context).size.width/2.5,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: NetworkImage(dessertsImage)
-                                          )
-                                      ),
-                                      child: CustomPaint(
-                                        painter: TrianglePainter(),
-                                      ),
+                      child: Card(
+                        child: Stack(
+                          children: [
+                            Container(
+                              color: Colors.white,
+                              height: 140,
+                              width: MediaQuery.of(context).size.width/2.5,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                    height: 140,
+                                    width: MediaQuery.of(context).size.width/2.5,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: NetworkImage(dessertsImage)
+                                        )
                                     ),
-                                  ],
-                                ),
+                                    child: CustomPaint(
+                                      painter: TrianglePainter(),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Positioned(
-                                  bottom: 15,
-                                  left: 10,
-                                  child: Text("Desserts",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
+                            ),
+                            Positioned(
+                                bottom: 15,
+                                left: 10,
+                                child: Text("Desserts",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),))
 
-                            ],
-                          ),
+                          ],
                         ),
                       ),
                     ),
@@ -268,18 +215,9 @@ class _NutriDiscoveryCategoriesState extends State<NutriDiscoveryCategories> {
 
               ],
             ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: Offset(1, 1,), // changes the position of the shadow
-                  ),
-                ],
-              ),
+            InkWell(onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>NutriDiscoverySeachPage(initialTabIndex:4)));
+            },
               child: Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: ClipRRect(
@@ -307,18 +245,10 @@ class _NutriDiscoveryCategoriesState extends State<NutriDiscoveryCategories> {
                 ),
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: Offset(1, 1,), // changes the position of the shadow
-                  ),
-                ],
-              ),
+            InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>NutriDiscoverySeachPage(initialTabIndex:5)));
+              },
               child: Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: ClipRRect(

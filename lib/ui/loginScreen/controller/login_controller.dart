@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:gluconutri/utils/loader.dart';
+import 'package:gluconutri/utils/navigation.dart';
+import 'package:gluconutri/view/dashboard_page/dashboard_navigator/dashboard_navigator.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginController extends GetxController{
@@ -82,6 +84,8 @@ class LoginController extends GetxController{
         insertUserData(name, emailAddress, dob );
       }
       closeLoader();
+      CustomNavigation.pushAndRemoveUntil(HomeNavigator());
+
     } on FirebaseAuthException catch (e) {
       closeLoader();
       if (e.code == 'weak-password') {

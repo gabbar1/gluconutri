@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class FunGlucoPage extends StatefulWidget {
    FunGlucoPage({Key? key,this.rout}) : super(key: key);
-  bool? rout =false;
+   bool? rout =false;
   @override
   State<FunGlucoPage> createState() => _FunGlucoPageState();
 }

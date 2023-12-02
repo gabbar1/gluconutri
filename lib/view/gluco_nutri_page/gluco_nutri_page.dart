@@ -1,3 +1,4 @@
+import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gluconutri/view/gluco_nutri_page/contoller/dietitian_controller.dart';
@@ -5,8 +6,9 @@ import 'package:gluconutri/view/gluco_nutri_page/gluco_nutri_book_appointment.da
 
 
 class GlucoNutriPage extends StatefulWidget {
-  const GlucoNutriPage({Key? key}) : super(key: key);
 
+  GlucoNutriPage({Key? key,this.rout}) : super(key: key);
+  bool? rout =false;
   @override
   State<GlucoNutriPage> createState() => _GlucoNutriPageState();
 }
@@ -24,7 +26,7 @@ class _GlucoNutriPageState extends State<GlucoNutriPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: widget.rout == true ?PreferredSize(
         preferredSize: Size.fromHeight(120),
         child: ClipRRect(
           borderRadius: BorderRadius.only(
@@ -45,8 +47,28 @@ class _GlucoNutriPageState extends State<GlucoNutriPage> {
             title: Text("GLUCONUTRI"),
           ),
         ),
-      ),
+      ):null,
       body: dietitiansList(),
+    );
+  }
+
+
+  EasyDateTimeLine _changeTodyHighlightColorExample() {
+    return EasyDateTimeLine(
+      headerProps: EasyHeaderProps(showHeader: false,
+
+      ),
+
+      initialDate: DateTime.now(),
+      onDateChange: (selectedDate) {
+
+      },
+      activeColor: const Color(0xFF651ECC),
+
+      dayProps:  EasyDayProps(
+        todayHighlightStyle: TodayHighlightStyle.withBackground,
+        todayHighlightColor: const Color(0xFF651ECC).withOpacity(.1),
+      ),
     );
   }
   dietitiansList(){
@@ -54,34 +76,40 @@ class _GlucoNutriPageState extends State<GlucoNutriPage> {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text("Top Dietitians",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-        const SizedBox(height: 10,),
-        SizedBox(
-          height: 130,
-          child: Obx(()=>ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount:dietitianController.getTopDietitianList.length ,
-              itemBuilder: (context,index){
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: InkWell(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>BookAppointment(topDietitianModel: dietitianController.getTopDietitianList[index])));
-                    },
-                    child: Column(
-                      children: [
-                        Image(image: NetworkImage(dietitianController.getTopDietitianList[index].image!),
-                          height: 80,
-                          width: 80,
-                        ),
-                        Text(dietitianController.getTopDietitianList[index].name!,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
-                        Text(dietitianController.getTopDietitianList[index].designation!,style: TextStyle(fontWeight: FontWeight.w200,fontSize: 12),)
-                      ],
+        if(widget.rout == true)...[
+          const Text("Top Dietitians",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+          const SizedBox(height: 10,),
+          SizedBox(
+            height: 130,
+            child: Obx(()=>ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount:dietitianController.getTopDietitianList.length ,
+                itemBuilder: (context,index){
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>BookAppointment(topDietitianModel: dietitianController.getTopDietitianList[index])));
+                      },
+                      child: Column(
+                        children: [
+                          Image(image: NetworkImage(dietitianController.getTopDietitianList[index].image!),
+                            height: 80,
+                            width: 80,
+                          ),
+                          Text(dietitianController.getTopDietitianList[index].name!,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+                          Text(dietitianController.getTopDietitianList[index].designation!,style: TextStyle(fontWeight: FontWeight.w200,fontSize: 12),)
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              })),
-        ),
+                  );
+                })),
+          ),
+        ]else...[
+          const Text("Choose Calender",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+          const SizedBox(height: 10,),
+          _changeTodyHighlightColorExample()
+        ],
         const SizedBox(height: 10,),
         const Text("Recommended Dietitians",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w300),),
         const SizedBox(height: 10,),

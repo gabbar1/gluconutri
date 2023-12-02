@@ -81,7 +81,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
           const SizedBox(height: 20,),
           InkWell(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>GlucoNutriPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>GlucoNutriPage(rout: true,)));
             },
             child: Container(
               height: 150,
@@ -119,7 +119,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
           const SizedBox(height: 20,),
           InkWell(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> GlucoTrackPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> GlucoTrackPage(rout: true,)));
             },
             child: Container(
               height: 150,

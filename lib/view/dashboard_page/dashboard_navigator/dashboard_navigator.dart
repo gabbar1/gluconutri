@@ -5,6 +5,8 @@ import 'package:gluconutri/ui/home/controller/home_controller.dart';
 import 'package:gluconutri/view/dashboard_page/dashboard_page.dart';
 import 'package:gluconutri/view/extra_menu/extra_menu.dart';
 import 'package:gluconutri/view/fun_gluco_page/fun_gluco.dart';
+import 'package:gluconutri/view/gluco_nutri_page/gluco_nutri_page.dart';
+import 'package:gluconutri/view/gluco_track_page/gluco_track_page.dart';
 import 'package:gluconutri/view/profile_page/profile_page.dart';
 
 
@@ -21,11 +23,11 @@ Widget pages(int _currentIndex){
     case 0 :
       return const DashBoardPage();
     case 1 :
-      return const DashBoardPage();
+      return  GlucoTrackPage();
     case 2 :
       return  FunGlucoPage();
     case 3 :
-      return  FunGlucoPage();
+      return  GlucoNutriPage();
     case 4 :
       return  DashBoardPage();
     default :
