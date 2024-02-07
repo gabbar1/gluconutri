@@ -12,6 +12,7 @@ class _FunGlucoPageState extends State<FunGlucoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: widget.rout == true ?AppBar(
+        backgroundColor: Color(0xFF651ECC),
         elevation: 0,
 
       ):null,
@@ -87,17 +88,19 @@ class _FunGlucoPageState extends State<FunGlucoPage> {
                       color: const Color(0xFF4977E3),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  child: Stack(
+                   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                    Padding(
+                      Padding(
                       padding: const EdgeInsets.only(top: 20.0,left: 30),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text("Puzzle",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
                           const SizedBox(height: 10,),
-                          const Text("Play puzzle games",style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w400),),
+                          SizedBox(
+                            width: MediaQuery.sizeOf(context).width/2.5,
+                              child: const Text("Beat your blood sugar with fun puzzles",style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w400),)),
                           const SizedBox(height: 10,),
                           Container(
                             height: 40,
@@ -118,10 +121,14 @@ class _FunGlucoPageState extends State<FunGlucoPage> {
                         ],
                       ),
                     ),
-                      Image(image: AssetImage("assets/Images/fungluco2.png"),height: 130,)
+
                   ],),
                 ),
               ),
+              Positioned(
+                  top: 10,
+                  right: -10,
+                  child:  Image(image: AssetImage("assets/Images/fungluco2.png"),height: 130,)),
               Positioned(
                   right: 8,
                   top: 30,
@@ -132,93 +139,96 @@ class _FunGlucoPageState extends State<FunGlucoPage> {
             ],
           ),
           const SizedBox(height: 20,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                height: 320,
-                width: MediaQuery.of(context).size.width/2.5,
-                decoration: BoxDecoration(
-                    color: const Color(0xFFA1D262),
-                    borderRadius: BorderRadius.circular(20)
+          Padding(
+            padding: const EdgeInsets.only(left: 15,right: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  height: 320,
+                  width: MediaQuery.of(context).size.width/2.5,
+                  decoration: BoxDecoration(
+                      color: const Color(0xFFA1D262),
+                      borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Image(image: AssetImage("assets/Images/fungluco3.png")),
+                        const SizedBox(height: 10,),
+                        const Text("Health Cooking",style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold),),
+                        const SizedBox(height: 5,),
+                        const Text("Learn your favorite nutritious recipes in a virtual kitchen",style: TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.w300),),
+                        const SizedBox(height: 45,),
+                        Container(
+                          height: 30,
+                          width: 80,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text('Start',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
+                              const SizedBox(width: 5,),
+                              Icon(Icons.play_circle,color: Colors.black,size: 20,),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                Container(
+                  height: 320,
+                  width: MediaQuery.of(context).size.width/2.5,
+                  decoration: BoxDecoration(
+                      color: const Color(0xFFEDC641),
+                      borderRadius: BorderRadius.circular(20)
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image(image: AssetImage("assets/Images/fungluco3.png")),
-                      const SizedBox(height: 10,),
-                      const Text("Health Cooking",style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold),),
-                      const SizedBox(height: 5,),
-                      const Text("A place where you learn healthy cooking with accurate levels of daily needs of carbs,fat,etc",style: TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.w300),),
-                      const SizedBox(height: 15,),
-                      Container(
-                        height: 30,
-                        width: 80,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                      const SizedBox(height: 13,),
+                      Image(image: AssetImage("assets/Images/fungluco4.png")),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Start',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
-                            const SizedBox(width: 5,),
-                            Icon(Icons.play_circle,color: Colors.black,size: 20,),
+                            //const SizedBox(height: 5,),
+                            const Text("Blood Sugar Control",style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold),),
+                            const SizedBox(height: 5,),
+                            const Text("Interactive simulator for mastering blood sugar control",style: TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.w300),),
+                            const SizedBox(height: 45,),
+                            Container(
+                              height: 30,
+                              width: 80,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10)
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Text('Start',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
+                                  const SizedBox(width: 5,),
+                                  Icon(Icons.play_circle,color: Colors.black,size: 20,),
+                                ],
+                              ),
+                            )
                           ],
                         ),
                       )
                     ],
                   ),
                 ),
-              ),
-              Container(
-                height: 320,
-                width: MediaQuery.of(context).size.width/2.5,
-                decoration: BoxDecoration(
-                    color: const Color(0xFFEDC641),
-                    borderRadius: BorderRadius.circular(20)
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 13,),
-                    Image(image: AssetImage("assets/Images/fungluco4.png")),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          //const SizedBox(height: 5,),
-                          const Text("Blood Sugar Control",style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold),),
-                          const SizedBox(height: 5,),
-                          const Text("Keep upto date your blood sugar level and control it.",style: TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.w300),),
-                          const SizedBox(height: 45,),
-                          Container(
-                            height: 30,
-                            width: 80,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10)
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Text('Start',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
-                                const SizedBox(width: 5,),
-                                Icon(Icons.play_circle,color: Colors.black,size: 20,),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
 
-            ],
+              ],
+            ),
           )
         ],
       ),

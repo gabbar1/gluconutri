@@ -27,7 +27,7 @@ class _GlucoNutriPageState extends State<GlucoNutriPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: widget.rout == true ?PreferredSize(
-        preferredSize: Size.fromHeight(120),
+        preferredSize: Size.fromHeight(100),
         child: ClipRRect(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(40),
@@ -93,10 +93,17 @@ class _GlucoNutriPageState extends State<GlucoNutriPage> {
                       },
                       child: Column(
                         children: [
-                          Image(image: NetworkImage(dietitianController.getTopDietitianList[index].image!),
+                          Container(
                             height: 80,
                             width: 80,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                image: NetworkImage(dietitianController.getTopDietitianList[index].image!)
+                              )
+                            ),
                           ),
+                         
                           Text(dietitianController.getTopDietitianList[index].name!,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
                           Text(dietitianController.getTopDietitianList[index].designation!,style: TextStyle(fontWeight: FontWeight.w200,fontSize: 12),)
                         ],
@@ -123,7 +130,7 @@ class _GlucoNutriPageState extends State<GlucoNutriPage> {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>BookAppointment(topDietitianModel: dietitianController.getRecommendedList[index])));
                 },
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(35),
+                  borderRadius: BorderRadius.circular(10),
                   child: Card(
                     elevation: 1,
                     child: Container(

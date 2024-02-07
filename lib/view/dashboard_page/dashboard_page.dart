@@ -154,7 +154,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
             children: [
               InkWell(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MyMenuPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>NutriDiscoveryPage()));
+
                   },
                 child: Container(
                   height: 150,

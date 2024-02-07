@@ -11,6 +11,7 @@ class DietitianController extends GetxController{
     topDietitianList.refresh();
   }
   fetchTopDietitians(){
+    topDietitianList.clear();
     try{
       FirebaseFirestore.instance.collection("top_dietitians").get().then((value) {
         if(value.size !=0){

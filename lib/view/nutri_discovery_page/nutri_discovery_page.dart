@@ -41,6 +41,7 @@ class _NutriDiscoveryPageState extends State<NutriDiscoveryPage> with TickerProv
           child: AppBar(
             backgroundColor: Color(0xFF651ECC),
             leading: SizedBox(),
+            leadingWidth: 10,
             title: Text("My Foodie Discovery"),
             actions: [Padding(
               padding: const EdgeInsets.only(right: 18.0),

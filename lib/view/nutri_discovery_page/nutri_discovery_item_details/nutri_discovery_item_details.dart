@@ -30,6 +30,7 @@ AddCalory addCalory = Get.find();
           children: [
             Column(
               children: [
+
                 Container(
                   height: 220,
                   decoration:const BoxDecoration(
@@ -40,8 +41,9 @@ AddCalory addCalory = Get.find();
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 18.0,right: 18),
+                    padding: const EdgeInsets.only(left: 18.0,right: 18,top: 60),
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Item Details",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),

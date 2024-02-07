@@ -45,6 +45,7 @@ class _NutriDiscoverySeachPageState extends State<NutriDiscoverySeachPage> with 
           child: AppBar(
               backgroundColor: Color(0xFF651ECC),
               leading: SizedBox(),
+              leadingWidth: 10,
               title: Text("Search Items"),
               actions: [Padding(
                 padding: const EdgeInsets.only(right: 18.0),

@@ -118,7 +118,6 @@ class _NutriDiscoveryCategoriesState extends State<NutriDiscoveryCategories> {
 
               ],
             ),
-            const SizedBox(height: 30,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -233,7 +232,7 @@ class _NutriDiscoveryCategoriesState extends State<NutriDiscoveryCategories> {
                             top: 0,
                             right: 0,
                             //child: Image.network(primePalteImage),height: 140,width: 140,
-                            child: Image(image: AssetImage("assets/Images/food1.png"),height: 140,width: 140,)
+                            child: Image(image: AssetImage("assets/Images/food1.png"),height: 140,width: 140,fit: BoxFit.fill,)
                         ),
                         Positioned(
                             bottom: 15,
